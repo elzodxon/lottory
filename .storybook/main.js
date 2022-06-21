@@ -7,7 +7,6 @@ module.exports = {
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-a11y",
     "storybook-dark-mode",
     {
       /**
@@ -24,7 +23,7 @@ module.exports = {
   ],
   framework: "@storybook/vue3",
   core: {
-    builder: "storybook-builder-vite",
+    builder: "@storybook/builder-vite",
   },
   typescript: {
     check: false,

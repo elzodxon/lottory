@@ -5,10 +5,10 @@
 </template>
 
 <script setup lang="ts">
-import { Size } from "@/types/Size";
+import { Size } from "./types";
 import { computed } from "vue";
 
-interface Props {
+export interface Props {
   label: string;
   backgroundColor?: string;
   size: Size;
@@ -35,27 +35,3 @@ const style = computed(() => ({
   backgroundColor: props.backgroundColor,
 }));
 </script>
-
-<style scoped>
-.storybook-button {
-  font-family: "Overpass", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 700;
-  border: 0;
-  border-radius: 3em;
-  cursor: pointer;
-  display: inline-block;
-  line-height: 1;
-}
-.storybook-button--small {
-  font-size: 12px;
-  padding: 10px 16px;
-}
-.storybook-button--medium {
-  font-size: 14px;
-  padding: 11px 20px;
-}
-.storybook-button--large {
-  font-size: 16px;
-  padding: 12px 24px;
-}
-</style>

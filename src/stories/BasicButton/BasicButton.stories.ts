@@ -1,5 +1,6 @@
 import { Story } from "@storybook/vue3";
-import BasicButton from "./BasicButton.vue";
+import BasicButton, { Props } from "./BasicButton.vue";
+import { sizes } from "./types";
 
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
@@ -11,13 +12,13 @@ export default {
     onClick: {},
     size: {
       control: { type: "select" },
-      options: ["small", "medium", "large"],
+      options: sizes,
     },
   },
 };
 
 // More on component templates: https://storybook.js.org/docs/vue/writing-stories/introduction#using-args
-const Template: Story = (args) => ({
+const Template: Story<Props> = (args) => ({
   // Components used in your story `template` are defined in the `components` object
   components: { BasicButton },
   // The story's `args` need to be mapped into the template through the `setup()` method
