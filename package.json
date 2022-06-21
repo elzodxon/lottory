@@ -12,6 +12,7 @@
     "format": "prettier .  --write"
   },
   "dependencies": {
+    "@storybook/addon-docs": "^6.5.9",
     "vue": "^3.2.16"
   },
   "devDependencies": {
