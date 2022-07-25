@@ -11,13 +11,14 @@
 </template>
 
 <script setup lang="ts">
-import { Size } from "./types";
 import { computed } from "vue";
+
+import { SBasicButtonSize } from "./types";
 
 export interface Props {
   label: string;
   backgroundColor?: string;
-  size: Size;
+  size: SBasicButtonSize;
 }
 
 interface Emits {
