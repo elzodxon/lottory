@@ -1,6 +1,7 @@
 const { loadConfigFromFile, mergeConfig } = require("vite");
 const eslintPlugin = require("vite-plugin-eslint").default;
 const path = require("path");
+const vueTypeImports = require("vite-plugin-vue-type-imports");
 
 module.exports = {
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|ts)"],
@@ -42,7 +43,7 @@ module.exports = {
 
     return mergeConfig(previousConfig, {
       ...config,
-      plugins: [eslintPlugin()],
+      plugins: [vueTypeImports["default"](), eslintPlugin()],
     });
   },
 };

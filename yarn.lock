@@ -11753,6 +11753,11 @@ vite-plugin-mdx@^3.5.6:
     resolve "^1.20.0"
     unified "^9.2.1"
 
+vite-plugin-vue-type-imports@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/vite-plugin-vue-type-imports/-/vite-plugin-vue-type-imports-0.2.0.tgz#bf2925ad730aa9f658c1f4b447bce12a6f641152"
+  integrity sha512-6rukBj1MP27WfsY5gqMZJg/Z8whK7f9oLbpICBDwzwOK2Oj7KkbP7IgFc2p3qInuB51SvUuxIIcJQVoUPaW6Nw==
+
 vite@^2.8.4:
   version "2.8.4"
   resolved "https://registry.yarnpkg.com/vite/-/vite-2.8.4.tgz#4e52a534289b7b4e94e646df2fc5556ceaa7336b"
