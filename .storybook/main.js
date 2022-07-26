@@ -43,7 +43,12 @@ module.exports = {
 
     return mergeConfig(previousConfig, {
       ...config,
-      plugins: [vueTypeImports["default"](), eslintPlugin()],
+      plugins: [
+        vueTypeImports["default"](),
+        eslintPlugin({
+          exclude: [/virtual:/, /node_modules/],
+        }),
+      ],
     });
   },
 };
