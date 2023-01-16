@@ -4,10 +4,16 @@ import { defineConfig } from "vite";
 import eslintPlugin from "vite-plugin-eslint";
 import vueTypeImports from "vite-plugin-vue-type-imports";
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  base: "./",
+  base: "/",
   plugins: [vue(), vueTypeImports(), eslintPlugin()],
+  test: {
+    globals: true,
+    environment: "happy-dom",
+    coverage: {
+      provider: "istanbul",
+    },
+  },
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
