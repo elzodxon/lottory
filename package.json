@@ -60,5 +60,11 @@
     "vitest": "^0.27.1",
     "vue-loader": "^16.8.3",
     "vue-tsc": "^0.31.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run test",
+      "pre-push": "npm run test"
+    }
   }
 }
