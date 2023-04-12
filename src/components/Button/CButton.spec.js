@@ -1,7 +1,7 @@
 import { mount } from "@vue/test-utils";
 import { expect, test } from "vitest";
 
-import Button from "@/components/Button/SButton.vue";
+import Button from "@/components/Button/CButton.vue";
 
 test("mount", async () => {
   expect(Button).toBeTruthy();
