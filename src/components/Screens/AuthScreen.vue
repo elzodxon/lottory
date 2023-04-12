@@ -8,7 +8,12 @@
       <label class="font-medium text-sm leading-[17px] text-gray mb-2 block">
         Pasport seriyasi, raqami yoki JSHSHIR
       </label>
-      <CInput v-model="values.passport" placeholder="AA1234567 | JSHSHIR" />
+      <CInput
+        :error="$v.passport.$invalid"
+        v-model="values.passport"
+        @blur="v$.passport.$touch()"
+        placeholder="AA1234567 | JSHSHIR"
+      />
     </div>
     <div class="mb-6">
       <label class="font-medium text-sm leading-[17px] text-gray mb-2 block">
@@ -62,6 +67,7 @@ const { values, $v } = form;
 const showBottomSheet = ref(false);
 
 const onSubmit = () => {
+  $v.value.$validate();
   // Todo: Submit function
 };
 </script>

@@ -17,7 +17,7 @@
         'duration-200 ease-in-out absolute top-0.5 left-0 inline-block h-5 w-5 rounded border-2 peer-checked:-rotate-90 peer-checked:after:opacity-100 peer-checked:after:rotate-[138deg] after:transition-all after:duration-200 after:absolute after:left-[6px] after:top-[2.5px] after:w-1.5 after:h-[11px] after:border-r-[2.2px] after:border-b-[2.2px] after:rotate-[0deg] after:opacity-0',
         'border-gray peer-checked:border-green after:border-green peer-disabled:border-gray peer-disabled:after:border-gray',
         {
-          '!border-danger': error,
+          '!border-red': error,
           'group-hover:border-green': !disabled,
         },
       ]"

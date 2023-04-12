@@ -16,11 +16,12 @@
   },
   "dependencies": {
     "@storybook/addon-docs": "^6.5.9",
+    "@vuelidate/core": "^2.0.0-alpha.41",
+    "@vuelidate/validators": "^2.0.0-alpha.29",
+    "@vueuse/core": "^9.13.0",
     "pinia": "^2.0.34",
     "vue": "^3.2.16",
-    "vue-router": "4",
-    "@vuelidate/core": "^2.0.0-alpha.41",
-    "@vuelidate/validators": "^2.0.0-alpha.29"
+    "vue-router": "4"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",

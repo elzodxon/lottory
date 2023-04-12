@@ -2,7 +2,7 @@
   <div
     :class="[
       'k-input inline-flex items-center relative k-transition transition-all duration-500 bg-white rounded-lg border overflow-hidden w-full h-11 ',
-      error ? '!border-danger' : 'border-gray focus-within:border-blue',
+      error ? '!border-red' : 'border-gray focus-within:border-blue',
     ]"
   >
     <span :class="[prefixClass, 'pl-4']">
