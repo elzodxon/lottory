@@ -1,12 +1,19 @@
 import "@/styles/index.css";
 
-import { createApp } from "vue";
+import { createPinia } from "pinia";
+import { createApp, h } from "vue";
 
 import definePlugins from "@/plugins";
+import router from "@/router/index";
 
 import App from "./App.vue";
 
-const app = createApp(App);
-// Define your plugins inside @/plugins.ts. It is required for storybook support.
+export const app = createApp({
+  render: () => h(App),
+});
+
+app.use(router);
+app.use(createPinia());
 definePlugins(app);
+
 app.mount("#app");
