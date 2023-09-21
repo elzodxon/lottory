@@ -1,6 +1,6 @@
 <template>
   <div>
-    <table class="table-auto mb-5">
+    <table class="table-auto mb-5 bg-white border-2 border-creamy">
       <thead>
         <tr>
           <th
@@ -8,7 +8,7 @@
             :key="'line1-header-' + index"
             class="border p-2 w-12 h-12"
             :class="{
-              'bg-blue-200 !text-black': cell === rowData?.line1_sel[0],
+              'bg-creamy !text-white': cell === rowData?.line1_sel[0],
             }"
           >
             {{ cell }}
@@ -20,7 +20,7 @@
             :key="'line2-header-' + index"
             class="border p-2 w-12 h-12"
             :class="{
-              'bg-blue-200 !text-black': cell === rowData.line2_sel[0],
+              'bg-creamy !text-white': cell === rowData.line2_sel[0],
             }"
           >
             {{ cell }}
@@ -32,7 +32,7 @@
             :key="'line2-header-' + index"
             class="border p-2 w-12 h-12"
             :class="{
-              'bg-blue-200 !text-black': cell === rowData.line3_sel[0],
+              'bg-creamy !text-white': cell === rowData.line3_sel[0],
             }"
           >
             {{ cell }}
@@ -62,8 +62,9 @@ table {
 
 th,
 td {
-  border: 1px solid #4a90e2;
+  border: 1px solid #5B432C;
   padding: 10px;
+  font-size: 24px;
   text-align: center;
 }
 
