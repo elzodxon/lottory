@@ -1,8 +1,10 @@
 <template>
-  <div class="h-full w-full min-h-screen">
+  <div class="h-full w-full min-h-screen 
+    bg-[url('https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1776&q=80')]"
+    >
     <div class="container mx-auto">
       <div class="">
-        <h1 class="text-4xl text-black text-center py-5">Lottery</h1>
+        <h1 class="title text-7xl font-bold text-white text-center py-5">Lottery</h1>
         <div class="grid grid-cols-12 gap-5">
           <div
             class="col-span-4"
@@ -90,3 +92,10 @@ export default {
   },
 };
 </script>
+<style>
+.title {
+  text-shadow: #5B432C 5px 0 10px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #5B432C;
+}
+</style>
