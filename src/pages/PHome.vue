@@ -1,6 +1,6 @@
 <template>
-  <div class="h-full w-full min-h-screen 
-    bg-[url('https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1776&q=80')]"
+  <div class="h-full w-full min-h-screen bg-cover
+    bg-[url('https://wallpapers.com/images/hd/high-resolution-wood-background-sk0k1ko8b0lxyyf4.jpg')]"
     >
     <div class="container mx-auto">
       <div class="">
