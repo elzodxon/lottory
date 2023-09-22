@@ -17,6 +17,9 @@ module.exports = {
         green: {
           DEFAULT: "#63D455",
         },
+        creamy:{
+          DEFAULT: "#DFA290"
+    },
         darkCream:{
           DEFAULT: "#5B432C"
         }
