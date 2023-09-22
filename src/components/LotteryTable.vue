@@ -1,17 +1,21 @@
 <template>
   <div>
-    <table class="table-auto mb-5 bg-white border-2 border-creamy">
+    <table class="table-auto h-[25vh] mb-5 bg-[url('https://media.istockphoto.com/id/1415858611/photo/wood-texture-for-furniture-or-interior-design-dark-wood-background.jpg?s=2048x2048&w=is&k=20&c=NUxMWigWKb78ptn9vGVCAHkZHpD2SYMbEgUui-ZDMTI=')] bg-cover rounded-md">
       <thead>
         <tr>
           <th
             v-for="(cell, index) in rowData?.line1"
             :key="'line1-header-' + index"
             class="border p-2 w-12 h-12"
-            :class="{
-              'bg-creamy !text-white': cell === rowData?.line1_sel[0],
-            }"
+            
           >
-            {{ cell }}
+            <h3 class="text-white w-[110%] h-[100%] border rounded-md  flex items-center justify-center"
+            :class="{
+              'active !bg-white': cell === rowData?.line1_sel[0],
+            }"
+            >
+              {{ cell }}
+            </h3>
           </th>
         </tr>
         <tr>
@@ -19,11 +23,15 @@
             v-for="(cell, index) in rowData?.line2"
             :key="'line2-header-' + index"
             class="border p-2 w-12 h-12"
-            :class="{
-              'bg-creamy !text-white': cell === rowData.line2_sel[0],
+            
+          >
+          <h3 class="text-white w-[110%] h-[100%] border rounded-md flex items-center justify-center"
+          :class="{
+              'active !bg-white': cell === rowData.line2_sel[0],
             }"
           >
-            {{ cell }}
+              {{ cell }}
+            </h3>
           </th>
         </tr>
         <tr>
@@ -31,11 +39,14 @@
             v-for="(cell, index) in rowData?.line3"
             :key="'line2-header-' + index"
             class="border p-2 w-12 h-12"
-            :class="{
-              'bg-creamy !text-white': cell === rowData.line3_sel[0],
+          >
+          <h3 class="text-white w-[110%] h-[100%] border rounded-md  flex items-center justify-center"
+          :class="{
+              'active !bg-white': cell === rowData.line3_sel[0],
             }"
           >
-            {{ cell }}
+              {{ cell }}
+            </h3>
           </th>
         </tr>
       </thead>
@@ -52,6 +63,12 @@ export default {
 </script>
 
 <style scoped>
+
+.active {
+  box-shadow: 10px 10px 10px 2px rgba(34, 60, 80, 0.2) inset; 
+  color: #412b24 !important;
+  cursor: not-allowed;
+}
 /* Add your custom styles here */
 table {
   border-collapse: collapse;
@@ -62,20 +79,21 @@ table {
 
 th,
 td {
-  border: 1px solid #5B432C;
   padding: 10px;
-  font-size: 24px;
+  font-size: 18px;
+  cursor: pointer;
+  border: 1px solid transparent;
   text-align: center;
 }
-
+th h3:hover {
+  background: white;
+  border: none;
+  color: #412b24;
+}
 th {
-  color: #4a90e2;
+  color: #272728;
 }
 
-td {
-  background-color: #fff;
-  color: #333;
-}
 
 .bg-green-200 {
   background-color: #c6f6d5; /* Light green background for selected cells */
@@ -83,7 +101,7 @@ td {
 
 /* Optional: Add hover effect for cells */
 td:hover {
-  background-color: #f0f4f8;
+  background-color: #f0f4f8 ;
 }
 
 /* Optional: Style for the modal */
