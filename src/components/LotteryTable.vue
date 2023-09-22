@@ -1,17 +1,17 @@
 <template>
   <div>
-    <table class="table-auto h-[25vh] mb-5 bg-[url('https://media.istockphoto.com/id/1415858611/photo/wood-texture-for-furniture-or-interior-design-dark-wood-background.jpg?s=2048x2048&w=is&k=20&c=NUxMWigWKb78ptn9vGVCAHkZHpD2SYMbEgUui-ZDMTI=')] bg-cover rounded-md">
+    <table class="table-auto h-[25vh] w-full mb-5 bg-[url('https://media.istockphoto.com/id/1415858611/photo/wood-texture-for-furniture-or-interior-design-dark-wood-background.jpg?s=2048x2048&w=is&k=20&c=NUxMWigWKb78ptn9vGVCAHkZHpD2SYMbEgUui-ZDMTI=')] bg-cover rounded-md">
       <thead>
         <tr>
           <th
             v-for="(cell, index) in rowData?.line1"
             :key="'line1-header-' + index"
-            class="border p-2 w-12 h-12"
+            class="p-2 w-12 h-12"
             
           >
-            <h3 class="text-white w-[110%] h-[100%] border rounded-md  flex items-center justify-center"
+            <h3 class="text-white cursor-pointer hover:bg-white hover:text-darkCream text-[18px] w-[110%] h-[100%] border rounded-md  flex items-center justify-center"
             :class="{
-              'active !bg-white': cell === rowData?.line1_sel[0],
+              'active !bg-white cursor-not-allowed text-darkCream': cell === rowData?.line1_sel[0],
             }"
             >
               {{ cell }}
@@ -22,12 +22,12 @@
           <th
             v-for="(cell, index) in rowData?.line2"
             :key="'line2-header-' + index"
-            class="border p-2 w-12 h-12"
+            class="p-2 w-12 h-12"
             
           >
-          <h3 class="text-white w-[110%] h-[100%] border rounded-md flex items-center justify-center"
+          <h3 class="text-white cursor-pointer hover:bg-white hover:text-darkCream text-[18px] w-[110%] h-[100%] border rounded-md flex items-center justify-center"
           :class="{
-              'active !bg-white': cell === rowData.line2_sel[0],
+              'active !bg-white cursor-not-allowed text-darkCream': cell === rowData.line2_sel[0],
             }"
           >
               {{ cell }}
@@ -38,11 +38,11 @@
           <th
             v-for="(cell, index) in rowData?.line3"
             :key="'line2-header-' + index"
-            class="border p-2 w-12 h-12"
+            class="p-2 w-12 h-12"
           >
-          <h3 class="text-white w-[110%] h-[100%] border rounded-md  flex items-center justify-center"
+          <h3 class="text-white cursor-pointer hover:bg-white hover:text-darkCream text-[18px] w-[110%] h-[100%] border rounded-md  flex items-center justify-center"
           :class="{
-              'active !bg-white': cell === rowData.line3_sel[0],
+              'active !bg-white cursor-not-allowed text-darkCream': cell === rowData.line3_sel[0],
             }"
           >
               {{ cell }}
@@ -66,86 +66,6 @@ export default {
 
 .active {
   box-shadow: 10px 10px 10px 2px rgba(34, 60, 80, 0.2) inset; 
-  color: #412b24 !important;
-  cursor: not-allowed;
-}
-/* Add your custom styles here */
-table {
-  border-collapse: collapse;
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-}
+} 
 
-th,
-td {
-  padding: 10px;
-  font-size: 18px;
-  cursor: pointer;
-  border: 1px solid transparent;
-  text-align: center;
-}
-th h3:hover {
-  background: white;
-  border: none;
-  color: #412b24;
-}
-th {
-  color: #272728;
-}
-
-
-.bg-green-200 {
-  background-color: #c6f6d5; /* Light green background for selected cells */
-}
-
-/* Optional: Add hover effect for cells */
-td:hover {
-  background-color: #f0f4f8 ;
-}
-
-/* Optional: Style for the modal */
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-container {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-.modal-header {
-  background-color: #4a90e2;
-  color: white;
-  border-radius: 8px 8px 0 0;
-  padding: 10px;
-}
-
-.modal-body {
-  padding: 20px;
-}
-
-.modal-footer {
-  text-align: right;
-  background-color: #f0f4f8;
-  border-radius: 0 0 8px 8px;
-  padding: 10px;
-}
 </style>
