@@ -1,18 +1,21 @@
 <template>
   <div>
-    <table class="table-auto h-[25vh] w-full mb-5 bg-[url('https://media.istockphoto.com/id/1415858611/photo/wood-texture-for-furniture-or-interior-design-dark-wood-background.jpg?s=2048x2048&w=is&k=20&c=NUxMWigWKb78ptn9vGVCAHkZHpD2SYMbEgUui-ZDMTI=')] bg-cover rounded-md">
+    <table
+      class="table-auto w-full mb-5 bg-[url('https://media.istockphoto.com/id/1415858611/photo/wood-texture-for-furniture-or-interior-design-dark-wood-background.jpg?s=2048x2048&w=is&k=20&c=NUxMWigWKb78ptn9vGVCAHkZHpD2SYMbEgUui-ZDMTI=')] bg-cover rounded-md"
+    >
       <thead>
         <tr>
           <th
             v-for="(cell, index) in rowData?.line1"
             :key="'line1-header-' + index"
-            class="p-2 w-12 h-12"
-            
+            class="p-2 w-14 h-14"
           >
-            <h3 class="text-white cursor-pointer hover:bg-white hover:text-darkCream text-[18px] w-[110%] h-[100%] border rounded-md  flex items-center justify-center"
-            :class="{
-              'active !bg-white cursor-not-allowed text-darkCream': cell === rowData?.line1_sel[0],
-            }"
+            <h3
+              class="text-white cursor-pointer text-[18px] w-[110%] h-[100%] border rounded-md flex items-center justify-center"
+              :class="{
+                'active !bg-white cursor-not-allowed text-darkCream':
+                  cell === rowData?.line1_sel[0],
+              }"
             >
               {{ cell }}
             </h3>
@@ -22,14 +25,15 @@
           <th
             v-for="(cell, index) in rowData?.line2"
             :key="'line2-header-' + index"
-            class="p-2 w-12 h-12"
-            
+            class="p-2 w-14 h-14"
           >
-          <h3 class="text-white cursor-pointer hover:bg-white hover:text-darkCream text-[18px] w-[110%] h-[100%] border rounded-md flex items-center justify-center"
-          :class="{
-              'active !bg-white cursor-not-allowed text-darkCream': cell === rowData.line2_sel[0],
-            }"
-          >
+            <h3
+              class="text-white cursor-pointer text-[18px] w-[110%] h-[100%] border rounded-md flex items-center justify-center"
+              :class="{
+                'active !bg-white cursor-not-allowed text-darkCream':
+                  cell === rowData.line2_sel[0],
+              }"
+            >
               {{ cell }}
             </h3>
           </th>
@@ -38,13 +42,15 @@
           <th
             v-for="(cell, index) in rowData?.line3"
             :key="'line2-header-' + index"
-            class="p-2 w-12 h-12"
+            class="p-2 w-14 h-14"
           >
-          <h3 class="text-white cursor-pointer hover:bg-white hover:text-darkCream text-[18px] w-[110%] h-[100%] border rounded-md  flex items-center justify-center"
-          :class="{
-              'active !bg-white cursor-not-allowed text-darkCream': cell === rowData.line3_sel[0],
-            }"
-          >
+            <h3
+              class="text-white cursor-pointer text-[18px] w-[110%] h-[100%] border rounded-md flex items-center justify-center"
+              :class="{
+                'active !bg-white cursor-not-allowed text-darkCream':
+                  cell === rowData.line3_sel[0],
+              }"
+            >
               {{ cell }}
             </h3>
           </th>
@@ -63,9 +69,7 @@ export default {
 </script>
 
 <style scoped>
-
 .active {
-  box-shadow: 10px 10px 10px 2px rgba(34, 60, 80, 0.2) inset; 
-} 
-
+  box-shadow: 10px 10px 10px 2px rgba(34, 60, 80, 0.2) inset;
+}
 </style>
