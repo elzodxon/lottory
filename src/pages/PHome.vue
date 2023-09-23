@@ -22,6 +22,7 @@
 <script>
 import LotteryTable from "@/components/LotteryTable.vue";
 
+import axios from "../axios.js";
 export default {
   components: { LotteryTable },
   data() {
@@ -76,14 +77,11 @@ export default {
   },
   methods: {
     fetchTicketsList() {
-      fetch("https://zty.uicgroup.tech/l/api/tickets/")
+      axios
+        .get("tickets/")
         .then((res) => {
           console.log(res);
-          return res.json();
-        })
-        .then((data) => {
-          console.log(data);
-          this.tableData = data;
+          this.tableData = res.data;
         })
         .catch((err) => {
           console.log(err);
