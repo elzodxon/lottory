@@ -2004,6 +2004,15 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
+axios@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.5.0.tgz#f02e4af823e2e46a9768cfc74691fdd0517ea267"
+  integrity sha512-D4DdjDo5CY50Qms0qGQTTw6Q44jl7zRwY7bthds06pUGfChBCTcQs+N743eFWGEd6pRTMd6A+I87aWyFV5wiZQ==
+  dependencies:
+    follow-redirects "^1.15.0"
+    form-data "^4.0.0"
+    proxy-from-env "^1.1.0"
+
 "@storybook/builder-vite@^0.1.36":
   version "0.1.41"
   resolved "https://registry.yarnpkg.com/@storybook/builder-vite/-/builder-vite-0.1.41.tgz#daa5c27f374a4e9bf5237d065b6383f5fbcbea4b"
