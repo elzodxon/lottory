@@ -1,8 +1,8 @@
 <template>
   <div>
-    <!--<div class="text-white text-l font-bold border-amber-900 border-solid">
+    <div class="text-white text-l font-bold border-amber-900 border-solid">
       Ticket {{ rowData.id }}
-    </div>-->
+    </div>
     <table
       class="table-auto w-full bg-[url('https://media.istockphoto.com/id/1415858611/photo/wood-texture-for-furniture-or-interior-design-dark-wood-background.jpg?s=2048x2048&w=is&k=20&c=NUxMWigWKb78ptn9vGVCAHkZHpD2SYMbEgUui-ZDMTI=')] bg-cover rounded-md"
     >
@@ -11,7 +11,7 @@
           <th
             v-for="(cell, index) in rowData?.line1"
             :key="'line1-header-' + index"
-            class="min-w-12 min-h-10 h-10 w-12"
+            class="min-w-12 min-h-12 h-12 w-12"
           >
             <h3
               class="text-white cursor-pointer text-[18px] w-[110%] h-[100%] border rounded-md flex items-center justify-center"
@@ -28,7 +28,7 @@
           <th
             v-for="(cell, index) in rowData?.line2"
             :key="'line2-header-' + index"
-            class="min-w-12 min-h-10 h-10 w-12"
+            class="min-w-12 min-h-12 h-12 w-12"
           >
             <h3
               class="text-white cursor-pointer text-[18px] w-[110%] h-[100%] border rounded-md flex items-center justify-center"
@@ -45,7 +45,7 @@
           <th
             v-for="(cell, index) in rowData?.line3"
             :key="'line2-header-' + index"
-            class="min-w-12 min-h-10 h-10 w-12"
+            class="min-w-12 min-h-12 h-12 w-12"
           >
             <h3
               class="text-white cursor-pointer text-[18px] w-[110%] h-[100%] border rounded-md flex items-center justify-center"

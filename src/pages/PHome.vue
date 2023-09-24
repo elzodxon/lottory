@@ -80,7 +80,9 @@ export default {
           this.fetchTicketsList();
         })
         .catch((err) => {
-          console.log("err", err);
+          alert(
+            `Game Over! Winner is ${err.response.data.ticket_win}. Start a new Game!`
+          );
         });
     },
   },
