@@ -3,7 +3,7 @@
     class="h-full w-full min-h-screen bg-cover bg-[url('https://wallpapers.com/images/hd/high-resolution-wood-background-sk0k1ko8b0lxyyf4.jpg')]"
   >
     <div class="container mx-auto" style="max-width: 95%">
-      <LotteryBallContainer @new-ball="fetchTicketsList" />
+      <LotteryBallContainer @new-number="fetchTicketsList" />
       <div class="grid grid-cols-12 gap-5 pb-6">
         <div
           class="col-span-3"

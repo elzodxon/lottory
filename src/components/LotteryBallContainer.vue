@@ -93,7 +93,7 @@ export default {
             transform: `translateX(0)`,
           };
         });
-        this.$emit("new-ball");
+        this.$emit("new-number");
       } catch (err) {
         this.winner = err.response.data.ticket_win;
         this.toggleModal();
@@ -103,13 +103,12 @@ export default {
     onStartGame() {
       axios
         .post("new-game/")
-        .then((res) => {
+        .then(() => {
           alert("New Game Started");
           this.lotteryNumbers = [];
-
-          this.fetchTicketsList();
+          this.$emit("new-number");
         })
-        .catch((err) => {
+        .catch(() => {
           // Todo: Show Error
         });
     },
