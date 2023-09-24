@@ -3,7 +3,7 @@
     class="h-full w-full min-h-screen bg-cover bg-[url('https://wallpapers.com/images/hd/high-resolution-wood-background-sk0k1ko8b0lxyyf4.jpg')]"
   >
     <div class="container mx-auto" style="max-width: 95%">
-      <div class="flex flex-col items-center justify-center mb-5">
+      <div class="flex flex-col items-center justify-center mb-3">
         <div>
           <button
             @click="onShuffle"
@@ -20,8 +20,8 @@
         </div>
       </div>
 
-      <LotteryBallContainer />
-      <div class="grid grid-cols-12 gap-5">
+      <LotteryBallContainer @new-ball="fetchTicketsList" />
+      <div class="grid grid-cols-12 gap-5 pb-6">
         <div
           class="col-span-3"
           v-for="tableNumber in tableData.length"

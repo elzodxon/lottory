@@ -1,103 +1,94 @@
 <template>
-  <div class="ball-container">
-    <div class="row">
-      <div
-        v-for="(ball, index) in rowBalls"
-        :key="index"
-        class="ball"
-        :class="{ 'animate-roll-in': ball.appeared }"
-      >
-        <span class="text-white font-bold text-xl">{{ ball.number }}</span>
+  <div class="bg-white p-4 border rounded-lg shadow-md max-w-xs">
+    <div class="overflow-hidden h-10">
+      <div class="flex" :style="containerStyle">
+        <transition-group name="roll">
+          <div
+            v-for="(number, index) in lotteryNumbers"
+            :key="index"
+            class="mb-2"
+          >
+            <div
+              :class="[
+                'bg-blue-500 text-white rounded-full p-2 w-8 h-8 text-center',
+                { 'bg-green-500': index === 0 },
+              ]"
+            >
+              {{ number }}
+            </div>
+          </div>
+        </transition-group>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import axios from "@/axios";
+
 export default {
   data() {
     return {
-      rowBalls: [], // Balls in the current row
+      lotteryNumbers: [],
+      maxNumbers: 10, // Maximum number of displayed lottery numbers
+      containerStyle: {},
+      gameFinished: false,
     };
   },
   methods: {
-    generateRandomNumber() {
-      return Math.floor(Math.random() * 90) + 1; // Generate a random number between 1 and 90
-    },
-    addBallToRow() {
-      const newBall = {
-        number: this.generateRandomNumber(),
-        appeared: true,
-      };
-      this.rowBalls.push(newBall);
-
-      // After 2 seconds, hide the ball
-      setTimeout(() => {
-        newBall.appeared = false;
-      }, 2000);
-    },
-    createNewRow() {
-      const interval = setInterval(() => {
-        if (this.rowBalls.length < 10) {
-          this.addBallToRow();
-        } else {
-          clearInterval(interval);
+    async fetchNewNumber() {
+      try {
+        const response = await axios.get("get-number/"); // Replace with your API endpoint
+        const newNumber = response.data.number;
+        if (this.lotteryNumbers.length >= this.maxNumbers) {
+          this.lotteryNumbers.pop(); // Remove the last number (FIFO)
         }
-      }, 200);
+        this.lotteryNumbers.unshift(newNumber); // Add the new number to the beginning
+        this.containerStyle = {
+          transform: `translateX(${50}px)`,
+        };
+        this.$nextTick(() => {
+          this.containerStyle = {
+            transform: `translateX(0)`,
+          };
+        });
+        this.$emit("new-ball");
+      } catch (err) {
+        alert(
+          `Game Over! Winner is ${err.response.data.ticket_win}. Start a new Game!`
+        );
+        this.gameFinished = true;
+      }
+    },
+    startGame() {
+      // Start the game by fetching the first number.
+      this.fetchNewNumber();
+
+      // Set up an interval to fetch new numbers periodically.
+      this.intervalId = setInterval(() => {
+        if (!this.gameFinished) {
+          this.fetchNewNumber();
+        }
+      }, 2000); // Add a new number every 2 seconds (adjust as needed)
     },
   },
-  created() {
-    // Start creating new rows with balls continuously
-    setInterval(() => {
-      this.createNewRow();
-    }, 2000);
+  mounted() {
+    // Start the game when the component is mounted.
+    this.startGame();
+  },
+  beforeUnmount() {
+    // Clear the interval when the component is destroyed.
+    clearInterval(this.intervalId);
   },
 };
 </script>
 
 <style scoped>
-/* Add your Tailwind CSS styles here */
-.ball-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
+.roll-enter-active,
+.roll-leave-active {
+  transition: transform 0.5s;
 }
-
-.row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px;
-}
-
-.ball {
-  width: 50px;
-  height: 50px;
-  background-color: #3490dc;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  margin: 5px;
-  opacity: 0;
-  transform: translateX(20px);
-}
-
-.animate-roll-in {
-  animation: roll-in 1s ease-out;
-}
-
-@keyframes roll-in {
-  0% {
-    transform: translateX(20px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
+.roll-enter, .roll-leave-to /* .roll-leave-active in <2.1.8 */ {
+  transform: translateX(100%);
 }
 </style>
