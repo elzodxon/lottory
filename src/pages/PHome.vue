@@ -23,6 +23,7 @@
         </div>
       </div>
 
+      <LotteryBallContainer />
       <div class="grid grid-cols-12 gap-5">
         <div
           class="col-span-4"
@@ -37,12 +38,13 @@
 </template>
 
 <script>
+import LotteryBallContainer from "@/components/LotteryBallContainer.vue";
 import LotteryTable from "@/components/LotteryTable.vue";
 
 import axios from "../axios.js";
 
 export default {
-  components: { LotteryTable },
+  components: { LotteryTable, LotteryBallContainer },
   data() {
     return {
       tableData: [],
