@@ -2,11 +2,8 @@
   <div
     class="h-full w-full min-h-screen bg-cover bg-[url('https://wallpapers.com/images/hd/high-resolution-wood-background-sk0k1ko8b0lxyyf4.jpg')]"
   >
-    <div class="container mx-auto">
+    <div class="container mx-auto" style="max-width: 95%">
       <div class="flex flex-col items-center justify-center mb-5">
-        <h1 class="title text-7xl font-bold text-white text-center py-5">
-          Lottery
-        </h1>
         <div>
           <button
             @click="onShuffle"
@@ -25,7 +22,7 @@
 
       <div class="grid grid-cols-12 gap-5">
         <div
-          class="col-span-4"
+          class="col-span-3"
           v-for="tableNumber in tableData.length"
           :key="tableNumber"
         >
