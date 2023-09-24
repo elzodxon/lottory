@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="text-white text-xl font-bold border-amber-900 border-solid">
+      Table {{ rowData.id }}
+    </div>
     <table
       class="table-auto w-full mb-5 bg-[url('https://media.istockphoto.com/id/1415858611/photo/wood-texture-for-furniture-or-interior-design-dark-wood-background.jpg?s=2048x2048&w=is&k=20&c=NUxMWigWKb78ptn9vGVCAHkZHpD2SYMbEgUui-ZDMTI=')] bg-cover rounded-md"
     >
