@@ -1,40 +1,42 @@
 <template>
-  <div class="flex flex-col items-center justify-center mb-3">
-    <div>
-      <button
-        @click="fetchNewNumber"
-        class="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded mt-2"
-      >
-        Shuffle
-      </button>
-      <button
-        @click="onStartGame"
-        class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
-      >
-        New Game
-      </button>
+  <div class="flex items-center flex-col">
+    <div class="flex flex-col items-center justify-center mb-3">
+      <div>
+        <button
+          @click="fetchNewNumber"
+          class="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded mt-2"
+        >
+          Shuffle
+        </button>
+        <button
+          @click="onStartGame"
+          class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+        >
+          New Game
+        </button>
+      </div>
     </div>
-  </div>
 
-  <div class="bg-white p-4 border rounded-lg shadow-md max-w-xs">
-    <div class="overflow-hidden h-10">
-      <div class="flex" :style="containerStyle">
-        <transition-group name="roll">
-          <div
-            v-for="(number, index) in lotteryNumbers"
-            :key="index"
-            class="mb-2"
-          >
+    <div class="bg-white p-4 border rounded-lg shadow-md max-w-xs w-full">
+      <div class="overflow-hidden h-10">
+        <div class="flex" :style="containerStyle">
+          <transition-group name="roll">
             <div
-              :class="[
-                'bg-blue-500 text-white rounded-full p-2 w-8 h-8 text-center',
-                { 'bg-green-500': index === 0 },
-              ]"
+              v-for="(number, index) in lotteryNumbers"
+              :key="index"
+              class="mb-2"
             >
-              {{ number }}
+              <div
+                :class="[
+                  'bg-blue-500 text-white rounded-full p-2 w-8 h-8 text-center',
+                  { 'bg-green-500': index === 0 },
+                ]"
+              >
+                {{ number }}
+              </div>
             </div>
-          </div>
-        </transition-group>
+          </transition-group>
+        </div>
       </div>
     </div>
   </div>
