@@ -3,24 +3,7 @@
     class="wrapper h-full w-full min-h-screen bg-cover"
   >
     <div class="container mx-auto" style="max-width: 95%">
-      <div class="flex flex-col items-center justify-center mb-3">
-        <div>
-          <button
-            @click="onShuffle"
-            class="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded mt-2"
-          >
-            Shuffle
-          </button>
-          <button
-            @click="onStartGame"
-            class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
-          >
-            New Game
-          </button>
-        </div>
-      </div>
-
-      <LotteryBallContainer @new-ball="fetchTicketsList" />
+      <LotteryBallContainer @new-number="fetchTicketsList" />
       <div class="grid grid-cols-12 gap-5 pb-6">
         <div
           class="col-span-3"
@@ -60,29 +43,6 @@ export default {
         })
         .catch((err) => {
           // Todo: Show error
-        });
-    },
-    onStartGame() {
-      axios
-        .post("new-game/")
-        .then((res) => {
-          alert("New Game Started");
-          this.fetchTicketsList();
-        })
-        .catch((err) => {
-          // Todo: Show Error
-        });
-    },
-    onShuffle() {
-      axios
-        .get("get-number/")
-        .then(() => {
-          this.fetchTicketsList();
-        })
-        .catch((err) => {
-          alert(
-            `Game Over! Winner is ${err.response.data.ticket_win}. Start a new Game!`
-          );
         });
     },
   },

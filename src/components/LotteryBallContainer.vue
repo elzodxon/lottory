@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div class="bg-gray-900 mx-auto p-4 border rounded-lg shadow-md max-w-xl h-[90px]">
     <div class="h-10">
       <div class="flex" :style="containerStyle">
@@ -18,7 +19,65 @@
             </div>
           </div>
         </transition-group>
+=======
+  <div class="flex items-center flex-col">
+    <div class="flex flex-col items-center justify-center mb-3">
+      <div>
+        <button
+          @click="fetchNewNumber"
+          class="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded mt-2"
+        >
+          Shuffle
+        </button>
+        <button
+          @click="onStartGame"
+          class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+        >
+          New Game
+        </button>
+>>>>>>> a530f49c1bb8d3c779b77a38523e140e7a0e530d
       </div>
+    </div>
+
+    <div class="bg-white p-4 border rounded-lg shadow-md max-w-xs w-full">
+      <div class="overflow-hidden h-10">
+        <div class="flex" :style="containerStyle">
+          <transition-group name="roll">
+            <div
+              v-for="(number, index) in lotteryNumbers"
+              :key="index"
+              class="mb-2"
+            >
+              <div
+                :class="[
+                  'bg-blue-500 text-white rounded-full p-2 w-8 h-8 text-center',
+                  { 'bg-green-500': index === 0 },
+                ]"
+              >
+                {{ number }}
+              </div>
+            </div>
+          </transition-group>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal  -->
+  <div v-if="show" class="fixed inset-0 flex items-center justify-center z-50">
+    <div class="fixed inset-0 bg-black opacity-50"></div>
+    <!-- Overlay -->
+    <div
+      class="relative bg-white rounded-lg shadow-xl max-w-lg mx-auto p-8 z-10"
+    >
+      <h2 class="text-3xl font-bold mb-4">Congratulations!</h2>
+      <p class="text-xl mb-6">The winner is: {{ winner }}</p>
+      <button
+        @click="toggleModal"
+        class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+      >
+        Close
+      </button>
     </div>
   </div>
 </template>
@@ -33,6 +92,10 @@ export default {
       maxNumbers: 10, // Maximum number of displayed lottery numbers
       containerStyle: {},
       gameFinished: false,
+
+      // Modal
+      show: false,
+      winner: "",
     };
   },
   methods: {
@@ -52,33 +115,28 @@ export default {
             transform: `translateX(0)`,
           };
         });
-        this.$emit("new-ball");
+        this.$emit("new-number");
       } catch (err) {
-        alert(
-          `Game Over! Winner is ${err.response.data.ticket_win}. Start a new Game!`
-        );
+        this.winner = err.response.data.ticket_win;
+        this.toggleModal();
         this.gameFinished = true;
       }
     },
-    startGame() {
-      // Start the game by fetching the first number.
-      this.fetchNewNumber();
-
-      // Set up an interval to fetch new numbers periodically.
-      this.intervalId = setInterval(() => {
-        if (!this.gameFinished) {
-          this.fetchNewNumber();
-        }
-      }, 2000); // Add a new number every 2 seconds (adjust as needed)
+    onStartGame() {
+      axios
+        .post("new-game/")
+        .then(() => {
+          alert("New Game Started");
+          this.lotteryNumbers = [];
+          this.$emit("new-number");
+        })
+        .catch(() => {
+          // Todo: Show Error
+        });
     },
-  },
-  mounted() {
-    // Start the game when the component is mounted.
-    this.startGame();
-  },
-  beforeUnmount() {
-    // Clear the interval when the component is destroyed.
-    clearInterval(this.intervalId);
+    toggleModal() {
+      this.show = !this.show;
+    },
   },
 };
 </script>
