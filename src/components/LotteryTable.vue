@@ -8,7 +8,7 @@
           <th
             v-for="(cell, index) in rowData?.line1"
             :key="'line1-header-' + index"
-            class="p-2 w-14 h-14"
+            class="p-2 min-w-14 min-h-14 h-14 w-14"
           >
             <h3
               class="text-white cursor-pointer text-[18px] w-[110%] h-[100%] border rounded-md flex items-center justify-center"
@@ -25,7 +25,7 @@
           <th
             v-for="(cell, index) in rowData?.line2"
             :key="'line2-header-' + index"
-            class="p-2 w-14 h-14"
+            class="p-2 min-w-14 min-h-14 h-14 w-14"
           >
             <h3
               class="text-white cursor-pointer text-[18px] w-[110%] h-[100%] border rounded-md flex items-center justify-center"
@@ -42,7 +42,7 @@
           <th
             v-for="(cell, index) in rowData?.line3"
             :key="'line2-header-' + index"
-            class="p-2 w-14 h-14"
+            class="p-2 min-w-14 min-h-14 h-14 w-14"
           >
             <h3
               class="text-white cursor-pointer text-[18px] w-[110%] h-[100%] border rounded-md flex items-center justify-center"
