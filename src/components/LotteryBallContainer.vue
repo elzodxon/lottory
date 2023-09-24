@@ -40,6 +40,24 @@
       </div>
     </div>
   </div>
+
+  <!-- Modal  -->
+  <div v-if="show" class="fixed inset-0 flex items-center justify-center z-50">
+    <div class="fixed inset-0 bg-black opacity-50"></div>
+    <!-- Overlay -->
+    <div
+      class="relative bg-white rounded-lg shadow-xl max-w-lg mx-auto p-8 z-10"
+    >
+      <h2 class="text-3xl font-bold mb-4">Congratulations!</h2>
+      <p class="text-xl mb-6">The winner is: {{ winner }}</p>
+      <button
+        @click="toggleModal"
+        class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+      >
+        Close
+      </button>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -52,6 +70,10 @@ export default {
       maxNumbers: 10, // Maximum number of displayed lottery numbers
       containerStyle: {},
       gameFinished: false,
+
+      // Modal
+      show: false,
+      winner: "",
     };
   },
   methods: {
@@ -73,9 +95,8 @@ export default {
         });
         this.$emit("new-ball");
       } catch (err) {
-        alert(
-          `Game Over! Winner is ${err.response.data.ticket_win}. Start a new Game!`
-        );
+        this.winner = err.response.data.ticket_win;
+        this.toggleModal();
         this.gameFinished = true;
       }
     },
@@ -91,6 +112,9 @@ export default {
         .catch((err) => {
           // Todo: Show Error
         });
+    },
+    toggleModal() {
+      this.show = !this.show;
     },
   },
 };
