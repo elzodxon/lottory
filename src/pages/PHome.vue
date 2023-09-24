@@ -1,8 +1,6 @@
 <template>
-  <div
-    class="wrapper h-full w-full min-h-screen bg-cover"
-  >
-    <div class="container mx-auto" style="max-width: 95%">
+  <div class="wrapper h-full w-full min-h-screen bg-cover pt-5">
+    <div class="container mx-auto">
       <LotteryBallContainer @new-number="fetchTicketsList" />
       <div class="grid grid-cols-12 gap-5 pb-6">
         <div
@@ -56,6 +54,6 @@ export default {
   -webkit-text-stroke-color: #5b432c;
 }
 .wrapper {
-  background-image: url('../../public/img/wrapper-bg.jpg');
+  background-image: url("../../public/img/wrapper-bg.jpg");
 }
 </style>

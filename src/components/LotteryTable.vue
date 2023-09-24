@@ -3,9 +3,7 @@
     <div class="text-white text-l font-bold border-amber-900 border-solid">
       Ticket {{ rowData.id }}
     </div>
-    <table
-      class="table-auto w-full bg-cover rounded-md"
-    >
+    <table class="table-auto w-full bg-cover rounded-md">
       <thead>
         <tr>
           <th
@@ -76,6 +74,6 @@ export default {
   box-shadow: 10px 10px 10px 2px rgba(34, 60, 80, 0.2) inset;
 }
 .table-auto {
-  background-image: url('../../public/img/table-bg.png');
+  background-image: url("/img/table-bg.png");
 }
 </style>

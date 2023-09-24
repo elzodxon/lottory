@@ -1,6 +1,7 @@
 <template>
-<<<<<<< HEAD
-  <div class="bg-gray-900 mx-auto p-4 border rounded-lg shadow-md max-w-xl h-[90px]">
+  <div
+    class="bg-gray-900 mx-auto p-4 border rounded-lg shadow-md max-w-xl h-[90px]"
+  >
     <div class="h-10">
       <div class="flex" :style="containerStyle">
         <transition-group name="roll">
@@ -19,7 +20,9 @@
             </div>
           </div>
         </transition-group>
-=======
+      </div>
+    </div>
+  </div>
   <div class="flex items-center flex-col">
     <div class="flex flex-col items-center justify-center mb-3">
       <div>
@@ -35,30 +38,6 @@
         >
           New Game
         </button>
->>>>>>> a530f49c1bb8d3c779b77a38523e140e7a0e530d
-      </div>
-    </div>
-
-    <div class="bg-white p-4 border rounded-lg shadow-md max-w-xs w-full">
-      <div class="overflow-hidden h-10">
-        <div class="flex" :style="containerStyle">
-          <transition-group name="roll">
-            <div
-              v-for="(number, index) in lotteryNumbers"
-              :key="index"
-              class="mb-2"
-            >
-              <div
-                :class="[
-                  'bg-blue-500 text-white rounded-full p-2 w-8 h-8 text-center',
-                  { 'bg-green-500': index === 0 },
-                ]"
-              >
-                {{ number }}
-              </div>
-            </div>
-          </transition-group>
-        </div>
       </div>
     </div>
   </div>
@@ -155,7 +134,7 @@ export default {
   animation-duration: 2s;
 }
 @keyframes example {
-  0%   {
+  0% {
     transform: scale(0.5);
   }
 
