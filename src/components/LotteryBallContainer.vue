@@ -1,4 +1,21 @@
 <template>
+  <div class="flex flex-col items-center justify-center mb-3">
+    <div>
+      <button
+        @click="fetchNewNumber"
+        class="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded mt-2"
+      >
+        Shuffle
+      </button>
+      <button
+        @click="onStartGame"
+        class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+      >
+        New Game
+      </button>
+    </div>
+  </div>
+
   <div class="bg-white p-4 border rounded-lg shadow-md max-w-xs">
     <div class="overflow-hidden h-10">
       <div class="flex" :style="containerStyle">
@@ -60,25 +77,19 @@ export default {
         this.gameFinished = true;
       }
     },
-    startGame() {
-      // Start the game by fetching the first number.
-      this.fetchNewNumber();
+    onStartGame() {
+      axios
+        .post("new-game/")
+        .then((res) => {
+          alert("New Game Started");
+          this.lotteryNumbers = [];
 
-      // Set up an interval to fetch new numbers periodically.
-      this.intervalId = setInterval(() => {
-        if (!this.gameFinished) {
-          this.fetchNewNumber();
-        }
-      }, 2000); // Add a new number every 2 seconds (adjust as needed)
+          this.fetchTicketsList();
+        })
+        .catch((err) => {
+          // Todo: Show Error
+        });
     },
-  },
-  mounted() {
-    // Start the game when the component is mounted.
-    this.startGame();
-  },
-  beforeUnmount() {
-    // Clear the interval when the component is destroyed.
-    clearInterval(this.intervalId);
   },
 };
 </script>
