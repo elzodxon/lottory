@@ -4,7 +4,7 @@
       Ticket {{ rowData.id }}
     </div>
     <table
-      class="table-auto w-full bg-[url('https://media.istockphoto.com/id/1415858611/photo/wood-texture-for-furniture-or-interior-design-dark-wood-background.jpg?s=2048x2048&w=is&k=20&c=NUxMWigWKb78ptn9vGVCAHkZHpD2SYMbEgUui-ZDMTI=')] bg-cover rounded-md"
+      class="table-auto w-full bg-cover rounded-md"
     >
       <thead>
         <tr>
@@ -74,5 +74,8 @@ export default {
 <style scoped>
 .active {
   box-shadow: 10px 10px 10px 2px rgba(34, 60, 80, 0.2) inset;
+}
+.table-auto {
+  background-image: url('../../public/img/table-bg.png');
 }
 </style>

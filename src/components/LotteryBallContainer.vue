@@ -1,17 +1,17 @@
 <template>
-  <div class="bg-white p-4 border rounded-lg shadow-md max-w-xs">
-    <div class="overflow-hidden h-10">
+  <div class="bg-gray-900 mx-auto p-4 border rounded-lg shadow-md max-w-xl h-[90px]">
+    <div class="h-10">
       <div class="flex" :style="containerStyle">
         <transition-group name="roll">
           <div
             v-for="(number, index) in lotteryNumbers"
             :key="index"
-            class="mb-2"
+            class="mb-2 w-[60px]"
           >
             <div
               :class="[
-                'bg-blue-500 text-white rounded-full p-2 w-8 h-8 text-center',
-                { 'bg-green-500': index === 0 },
+                'ball bg-white text-gray-900 text-xl  rounded-full p-2 w-10 h-10 font-bold flex items-center justify-center',
+                { 'active-ball mt-2': index === 0 },
               ]"
             >
               {{ number }}
@@ -90,5 +90,22 @@ export default {
 }
 .roll-enter, .roll-leave-to /* .roll-leave-active in <2.1.8 */ {
   transform: translateX(100%);
+}
+
+.active-ball {
+  animation: example infinite;
+  animation-duration: 2s;
+}
+@keyframes example {
+  0%   {
+    transform: scale(0.5);
+  }
+
+  100% {
+    transform: scale(1.25);
+  }
+}
+.ball {
+  box-shadow: 10px 10px 10px 2px rgba(34, 60, 80, 0.2) inset;
 }
 </style>

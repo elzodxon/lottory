@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-full w-full min-h-screen bg-cover bg-[url('https://wallpapers.com/images/hd/high-resolution-wood-background-sk0k1ko8b0lxyyf4.jpg')]"
+    class="wrapper h-full w-full min-h-screen bg-cover"
   >
     <div class="container mx-auto" style="max-width: 95%">
       <div class="flex flex-col items-center justify-center mb-3">
@@ -94,5 +94,8 @@ export default {
   text-shadow: #5b432c 5px 0 10px;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #5b432c;
+}
+.wrapper {
+  background-image: url('../../public/img/wrapper-bg.jpg');
 }
 </style>
