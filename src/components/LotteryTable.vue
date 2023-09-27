@@ -15,7 +15,7 @@
               class="text-white cursor-pointer text-[18px] w-[110%] h-[100%] border rounded-md flex items-center justify-center"
               :class="{
                 'active !bg-white cursor-not-allowed text-darkCream':
-                  cell === rowData?.line1_sel[0],
+                  is_selected(cell, rowData.line1_sel),
               }"
             >
               {{ cell }}
@@ -32,7 +32,7 @@
               class="text-white cursor-pointer text-[18px] w-[110%] h-[100%] border rounded-md flex items-center justify-center"
               :class="{
                 'active !bg-white cursor-not-allowed text-darkCream':
-                  cell === rowData.line2_sel[0],
+                  is_selected(cell, rowData.line2_sel),
               }"
             >
               {{ cell }}
@@ -49,7 +49,7 @@
               class="text-white cursor-pointer text-[18px] w-[110%] h-[100%] border rounded-md flex items-center justify-center"
               :class="{
                 'active !bg-white cursor-not-allowed text-darkCream':
-                  cell === rowData.line3_sel[0],
+                  is_selected(cell, rowData.line3_sel),
               }"
             >
               {{ cell }}
@@ -66,6 +66,17 @@ export default {
   props: {
     rowData: Object,
   },
+  methods: {
+    is_selected(cell, selected_nums) {
+      if (selected_nums.indexOf(cell)!==-1){
+
+        return true
+      } 
+      else{
+        return false
+      }
+    }
+}
 };
 </script>
 
